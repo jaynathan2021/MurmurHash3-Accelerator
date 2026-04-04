@@ -33,11 +33,11 @@ module tb_murmurhash3;
     // =========================================================================
     localparam logic [127:0] TV0_KEY    = 128'h0;
     localparam logic [31:0]  TV0_SEED   = 32'h0;
-    localparam logic [31:0]  TV0_GOLDEN = 32'hXXXXXXXX;  // TODO: fill from C ref
+    localparam logic [31:0]  TV0_GOLDEN = 32'h8134cdf8;  // verified: sw/murmurhash3_ref.c
 
     localparam logic [127:0] TV1_KEY    = {128{1'b1}};
     localparam logic [31:0]  TV1_SEED   = 32'hdeadbeef;
-    localparam logic [31:0]  TV1_GOLDEN = 32'hXXXXXXXX;  // TODO: fill from C ref
+    localparam logic [31:0]  TV1_GOLDEN = 32'h5cf7f123;  // verified: sw/murmurhash3_ref.c
 
     // =========================================================================
     // Clock & reset
