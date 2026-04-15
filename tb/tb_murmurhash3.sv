@@ -2,9 +2,10 @@
 //
 // NOT SYNTHESIZABLE — testbench only.
 //
-// Tests:
-//   1. Hardcoded known vectors (must be pre-verified against sw/murmurhash3_ref.c)
-//   2. All-ones key with non-trivial seed
+// Active tests:
+//   1. C-verified directed vectors
+//   2. Deterministic correctness sweep
+//   Note: the older bandwidth-oriented flow is preserved below as a commented block.
 //   3. Correctness sweep — 64 pseudo-random keys per lane
 //   4. Bandwidth measurement — stream N lanes for 256 cycles
 //
@@ -24,6 +25,7 @@ module tb_murmurhash3;
     localparam int N              = 4;
     localparam int TAG_W          = 8;
     localparam int PIPELINE_DEPTH = 6;      // 4 mix + 2 fmix stages
+    localparam int SWEEP_CASES_PER_LANE = 8;
     localparam realtime CLK_HALF  = 5.0;    // 10 ns period → 100 MHz
 
     // =========================================================================
@@ -38,6 +40,14 @@ module tb_murmurhash3;
     localparam logic [127:0] TV1_KEY    = {128{1'b1}};
     localparam logic [31:0]  TV1_SEED   = 32'hdeadbeef;
     localparam logic [31:0]  TV1_GOLDEN = 32'h5cf7f123;  // verified: sw/murmurhash3_ref.c
+
+    localparam logic [127:0] TV2_KEY    = 128'h0f0e0d0c0b0a09080706050403020100;
+    localparam logic [31:0]  TV2_SEED   = 32'h00000001;
+    localparam logic [31:0]  TV2_GOLDEN = 32'hbba77653;  // verified: sw/murmurhash3_ref.c
+
+    localparam logic [127:0] TV3_KEY    = 128'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
+    localparam logic [31:0]  TV3_SEED   = 32'hcafebabe;
+    localparam logic [31:0]  TV3_GOLDEN = 32'h35c376a6;  // verified: sw/murmurhash3_ref.c
 
     // =========================================================================
     // Clock & reset
@@ -142,6 +152,8 @@ module tb_murmurhash3;
 
     int pass_count = 0;
     int fail_count = 0;
+    string tb_build_id = "TB_CORRECTNESS_V1_2026_04_15";
+    string active_test_name = "startup";
 
     // Checker — samples every rising edge.
     // tag_out[i] is used directly as the scoreboard index to avoid
@@ -154,6 +166,12 @@ module tb_murmurhash3;
                            $time, i, tag_out[i]);
                     fail_count++;
                 end else if (hash_out[i] !== scoreboard[i][tag_out[i]].expected) begin
+                    $display("RESULT test=%s lane=%0d tag=0x%02h key=0x%032h seed=0x%08h expected=0x%08h got=0x%08h status=FAIL",
+                             active_test_name, i, tag_out[i],
+                             scoreboard[i][tag_out[i]].key,
+                             scoreboard[i][tag_out[i]].seed,
+                             scoreboard[i][tag_out[i]].expected,
+                             hash_out[i]);
                     $error("[%0t] Lane %0d tag 0x%02h: FAIL got=0x%08h expected=0x%08h  key=0x%032h seed=0x%08h",
                            $time, i, tag_out[i],
                            hash_out[i],
@@ -163,6 +181,12 @@ module tb_murmurhash3;
                     fail_count++;
                 end else begin
                     pass_count++;
+                    $display("RESULT test=%s lane=%0d tag=0x%02h key=0x%032h seed=0x%08h expected=0x%08h got=0x%08h status=PASS",
+                             active_test_name, i, tag_out[i],
+                             scoreboard[i][tag_out[i]].key,
+                             scoreboard[i][tag_out[i]].seed,
+                             scoreboard[i][tag_out[i]].expected,
+                             hash_out[i]);
                 end
                 scoreboard[i][tag_out[i]].occupied = 1'b0;
             end
@@ -204,9 +228,49 @@ module tb_murmurhash3;
         for (int i = 0; i < N; i++) idle_lane(i);
     endtask
 
+    task automatic start_test (input string test_name);
+        active_test_name = test_name;
+        $display("\n[TB][%s] >>> BEGIN %s <<<", tb_build_id, active_test_name);
+        $display("[TB][%s] time=%0t  pass=%0d  fail=%0d",
+                 active_test_name, $time, pass_count, fail_count);
+    endtask
+
+    task automatic finish_test (input string test_name);
+        $display("[TB][%s] <<< END %s >>>", tb_build_id, test_name);
+        $display("[TB][%s] cumulative pass=%0d  fail=%0d",
+                 test_name, pass_count, fail_count);
+    endtask
+
+    function automatic logic [31:0] lcg_next (input logic [31:0] state);
+        return (state * 32'h0019660d) + 32'h3c6ef35f;
+    endfunction
+
+    task automatic run_directed_case (
+        input string         test_name,
+        input logic [127:0]  key,
+        input logic [31:0]   seed,
+        input logic [31:0]   expected
+    );
+        start_test(test_name);
+        @(posedge clk);
+        valid_in[0] = 1'b1;
+        key_in[0]   = key;
+        seed_in[0]  = seed;
+        tag_in[0]   = next_tag[0];
+        scoreboard[0][next_tag[0]].key      = key;
+        scoreboard[0][next_tag[0]].seed     = seed;
+        scoreboard[0][next_tag[0]].expected = expected;
+        scoreboard[0][next_tag[0]].occupied = 1'b1;
+        next_tag[0]++;
+        @(posedge clk); idle_lane(0);
+        repeat (PIPELINE_DEPTH + 2) @(posedge clk);
+        finish_test(test_name);
+    endtask
+
     // =========================================================================
     // Main stimulus
     // =========================================================================
+    int total_expected_results;
     int   bw_keys;
     real  bw_start_ns, bw_end_ns;
 
@@ -214,6 +278,12 @@ module tb_murmurhash3;
         // -----------------------------------------------------------------
         // Initialization
         // -----------------------------------------------------------------
+        $display("============================================================");
+        $display("[TB] BUILD ID : %s", tb_build_id);
+        $display("[TB] PARAMS   : N=%0d TAG_W=%0d PIPELINE_DEPTH=%0d CLK_PERIOD=%.1f ns",
+                 N, TAG_W, PIPELINE_DEPTH, 2.0 * CLK_HALF);
+        $display("[TB] MODE     : correctness-focused directed vectors + deterministic sweep");
+        $display("============================================================");
         idle_all();
         for (int i = 0; i < N; i++) next_tag[i] = '0;
         for (int i = 0; i < N; i++)
@@ -223,6 +293,70 @@ module tb_murmurhash3;
         // Reset for 4 cycles
         repeat (4) @(posedge clk);
         @(negedge clk); rst_n = 1'b1;
+        $display("[TB] Reset released at t=%0t", $time);
+
+        // -----------------------------------------------------------------
+        // Correctness-focused flow
+        // -----------------------------------------------------------------
+        total_expected_results = 4 + (SWEEP_CASES_PER_LANE * N);
+
+        run_directed_case("TV0 zero key seed=0",           TV0_KEY, TV0_SEED, TV0_GOLDEN);
+        run_directed_case("TV1 ones key seed=DEADBEEF",    TV1_KEY, TV1_SEED, TV1_GOLDEN);
+        run_directed_case("TV2 incrementing bytes seed=1", TV2_KEY, TV2_SEED, TV2_GOLDEN);
+        run_directed_case("TV3 AA pattern seed=CAFEBABE",  TV3_KEY, TV3_SEED, TV3_GOLDEN);
+
+        start_test("Deterministic sweep");
+        $display("=== Deterministic correctness sweep (%0d cases x %0d lanes) ===",
+                 SWEEP_CASES_PER_LANE, N);
+        begin
+            automatic logic [127:0] rkey;
+            automatic logic [31:0]  rseed;
+            automatic logic [31:0]  prng_state;
+            automatic logic [31:0]  w0, w1, w2, w3;
+
+            prng_state = 32'h1badf00d;
+            repeat (SWEEP_CASES_PER_LANE) begin
+                @(posedge clk);
+                for (int lane = 0; lane < N; lane++) begin
+                    prng_state = lcg_next(prng_state); w0 = prng_state;
+                    prng_state = lcg_next(prng_state); w1 = prng_state;
+                    prng_state = lcg_next(prng_state); w2 = prng_state;
+                    prng_state = lcg_next(prng_state); w3 = prng_state;
+                    prng_state = lcg_next(prng_state); rseed = prng_state;
+                    rkey = {w3, w2, w1, w0};
+                    drive_key(lane, rkey, rseed);
+                end
+            end
+        end
+        @(posedge clk); idle_all();
+        repeat (PIPELINE_DEPTH + 2) @(posedge clk);
+        finish_test("Deterministic sweep");
+
+        $display("\n============================================================");
+        $display(" CORRECTNESS SUMMARY");
+        $display("============================================================");
+        $display("  Directed C-verified vectors : 4");
+        $display("  Deterministic sweep outputs : %0d", SWEEP_CASES_PER_LANE * N);
+        $display("  Total expected results      : %0d", total_expected_results);
+        $display("  PASS                        : %0d", pass_count);
+        $display("  FAIL                        : %0d", fail_count);
+        $display("  Copyable compare lines      : search for prefix 'RESULT ' above");
+        $display("============================================================");
+
+        if (fail_count == 0)
+            $display("  *** HASH OUTPUT CORRECTNESS CHECKS PASSED ***");
+        else
+            $display("  *** %0d CORRECTNESS FAILURE(S) -- see RESULT/$error lines above ***", fail_count);
+        $display("============================================================\n");
+
+        $finish;
+
+        /*
+        -----------------------------------------------------------------------
+        Legacy bandwidth-oriented flow retained for reference.
+        This block is intentionally commented out while the active testbench
+        focuses on correctness and copyable hash-compare output.
+        -----------------------------------------------------------------------
 
         // -----------------------------------------------------------------
         // Test 1 : Hardcoded vector — zero key, seed = 0
@@ -237,6 +371,7 @@ module tb_murmurhash3;
         // Until TV0_GOLDEN is filled with the C-derived value, this test
         // only confirms DUT matches the SV model.
         // -----------------------------------------------------------------
+        start_test("Test 1");
         $display("\n=== Test 1: hardcoded vector (zero key, seed=0) ===");
         if (TV0_GOLDEN !== 32'hXXXXXXXX) begin
             // Drive directly and check output against hardcoded constant
@@ -259,6 +394,8 @@ module tb_murmurhash3;
         // -----------------------------------------------------------------
         // Test 2 : Hardcoded vector — all-ones key, seed = 0xDEADBEEF
         // -----------------------------------------------------------------
+        finish_test("Test 1");
+        start_test("Test 2");
         $display("=== Test 2: hardcoded vector (all-ones key, seed=0xDEADBEEF) ===");
         if (TV1_GOLDEN !== 32'hXXXXXXXX) begin
             @(posedge clk);
@@ -282,6 +419,8 @@ module tb_murmurhash3;
         //   64 pseudo-random keys × N lanes.  All lanes driven in parallel.
         //   Scoreboard checks DUT output == SV reference model.
         // -----------------------------------------------------------------
+        finish_test("Test 2");
+        start_test("Test 3");
         $display("=== Test 3: correctness sweep (64 keys x %0d lanes) ===", N);
         begin
             automatic logic [127:0] rkey;
@@ -302,9 +441,12 @@ module tb_murmurhash3;
         // Test 4 : Bandwidth measurement
         //   Stream all N lanes for 256 cycles; measure throughput.
         // -----------------------------------------------------------------
+        finish_test("Test 3");
+        start_test("Test 4");
         $display("=== Test 4: bandwidth (%0d lanes, 256 cycles) ===", N);
         bw_keys     = 0;
         bw_start_ns = $realtime;
+        $display("[TB][Test 4] bandwidth timer armed at t=%0t", $time);
         begin
             automatic logic [127:0] rkey;
             automatic logic [31:0]  rseed;
@@ -321,6 +463,9 @@ module tb_murmurhash3;
         @(posedge clk); idle_all();
         repeat (PIPELINE_DEPTH + 2) @(posedge clk);
         bw_end_ns = $realtime;
+        $display("[TB][Test 4] bandwidth timer start=%0f ns stop=%0f ns",
+                 bw_start_ns, bw_end_ns);
+        finish_test("Test 4");
 
         // -----------------------------------------------------------------
         // Summary
@@ -345,6 +490,7 @@ module tb_murmurhash3;
         $display("========================================\n");
 
         $finish;
+        */
     end
 
     // Watchdog

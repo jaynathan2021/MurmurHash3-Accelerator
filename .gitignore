@@ -1,0 +1,21 @@
+.vscode/
+
+# Questa / ModelSim generated files
+sim/work/
+sim/*.wlf
+sim/wlft*
+sim/transcript
+sim/sv_correctness_run.txt
+sim/sv_result_lines.txt
+
+# Local transcripts
+transcript
+
+# Build artifacts
+*.exe
+
+# Backup files
+*.bak
+
+# Local scratch files
+temp_test.*

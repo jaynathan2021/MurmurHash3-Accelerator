@@ -1,0 +1,37 @@
+RESULT test=TV0 zero key seed=0 lane=0 tag=0x00 key=0x00000000000000000000000000000000 seed=0x00000000 expected=0x8134cdf8 got=0x8134cdf8 status=PASS
+RESULT test=TV1 ones key seed=DEADBEEF lane=0 tag=0x01 key=0xffffffffffffffffffffffffffffffff seed=0xdeadbeef expected=0x5cf7f123 got=0x5cf7f123 status=PASS
+RESULT test=TV2 incrementing bytes seed=1 lane=0 tag=0x02 key=0x0f0e0d0c0b0a09080706050403020100 seed=0x00000001 expected=0xbba77653 got=0xbba77653 status=PASS
+RESULT test=TV3 AA pattern seed=CAFEBABE lane=0 tag=0x03 key=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa seed=0xcafebabe expected=0x35c376a6 got=0x35c376a6 status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x04 key=0x373f0591101f307abd404dc7632e5208 seed=0xb20301bc expected=0x3d881e2e got=0x3d881e2e status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x00 key=0xa319f2b08e3a5155250bde4ea4a2f1eb seed=0x8ea2664f expected=0x5e73538c got=0x5e73538c status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x00 key=0x219d8ef35bd898e4479217592d289f62 seed=0xae1f07b6 expected=0xa043e622 got=0xa043e622 status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x00 key=0x5587eb4afd0f8fd76a61a85831dadb9d seed=0xb64f6221 expected=0xeec818d0 got=0xeec818d0 status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x05 key=0x1a14aee5923f5e1e9733ccfbb4c9150c seed=0xe1881300 expected=0x24bbd966 got=0x24bbd966 status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x01 key=0x2d311634d1be05e938f8b432c2e9ea5f seed=0x41d9cc03 expected=0xe0859398 got=0xe0859398 status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x01 key=0x06d795e7e163d2a8eb10eb2d48128186 seed=0x1eaa9a1a expected=0x6c79be96 got=0x6c79be96 status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x01 key=0xbaf211ee0c87ac0be1013c5cd10922b1 seed=0xee1cb075 expected=0x683f0819 got=0x683f0819 status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x06 key=0xf0bfd879d3c13d02e442b26ffd9f8750 seed=0x0a3e2784 expected=0xdc7fc2ca got=0xdc7fc2ca status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x02 key=0xdf39d0f8b6291ebde16baf5661398d13 seed=0x03d95ff7 expected=0xb17d2eb0 got=0xb17d2eb0 status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x02 key=0x096f8f1bc38077ac1f55474169d43cea seed=0x23c0f9be expected=0x873d7eb4 got=0x873d7eb4 status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x02 key=0xc56f39d2440dbe7fef054fa0544b5605 seed=0x39a08f09 expected=0x777701ec got=0x777701ec status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x07 key=0x1c3c764d926791261eadd2231a74ccd4 seed=0x5028a348 expected=0x84c9932a got=0x84c9932a status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x03 key=0x725bc6fcd75ccfd1fc91d3ba7195ee07 seed=0x0afc762b expected=0xb29e4506 got=0xb29e4506 status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x03 key=0x0fec0e8f2a9e6bf0f8d99f95ec89158e seed=0x852faaa2 expected=0xb17e2c9b got=0xb17e2c9b status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x03 key=0x768326f699679b33368a0624a7a92999 seed=0x50a3f1dd expected=0x34d85a03 got=0x34d85a03 status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x08 key=0x5d88bc6133b05e8a31ce401745b54998 seed=0xdce82a4c expected=0xe29546ef got=0xe29546ef status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x04 key=0xf28fdc407a408d25a067655e167f613b seed=0x61bea29f expected=0x7362b9be got=0x7362b9be status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x04 key=0x80d7e8433872d3742c62a829096f8f72 seed=0x7c7b70c6 expected=0x77f27c99 got=0x77f27c99 status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x04 key=0xd33cdd5a9a83562746a4c3e8c0f8916d seed=0xd4820cf1 expected=0xdb3f03fc got=0xdb3f03fc status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x09 key=0xf9391eb505b8e92ec989504b1bbaa19c seed=0xa63ea090 expected=0x8c3687b5 got=0x8c3687b5 status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x05 key=0x4b6434c43f960ab997dbe8424fa67aaf seed=0x24afb953 expected=0x36f53861 got=0x36f53861 status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x05 key=0x85f630379efc1238a51354fd364d6e96 seed=0xd684502a expected=0x6c50bfab got=0x6c50bfab status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x05 key=0xee1aa0fe69eb435bc0a82cecad31c181 seed=0xa8bc5445 expected=0x64c66fed got=0x64c66fed status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x0a key=0x6f4c51499561b512fc0496bf124fb8e0 seed=0x3bd32a14 expected=0x16bbf1b5 got=0x16bbf1b5 status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x06 key=0xb00034888f0d3c8da936206684e00e63 seed=0x62a7ce47 expected=0x693cabcc got=0x693cabcc status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x06 key=0xf5b63a6b26c5cc3c36c0da114013b6fa seed=0x06698cce expected=0xb2abe02b got=0xb2abe02b status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x06 key=0x562df5e2a579f6cfc0a825305e032dd5 seed=0xefce7bd9 expected=0x5d28a5db got=0x5d28a5db status=PASS
+RESULT test=Deterministic sweep lane=0 tag=0x0b key=0xfb3f481d1db286366199e773c774b364 seed=0x40362ad8 expected=0xa0b95af5 got=0xa0b95af5 status=PASS
+RESULT test=Deterministic sweep lane=1 tag=0x07 key=0xc2687f8c2e9856a1e9b811ca43593057 seed=0x333b357b expected=0xa4eac324 got=0xa4eac324 status=PASS
+RESULT test=Deterministic sweep lane=2 tag=0x07 key=0xb6e79adf486ce5802086ab65a6c2ac9e seed=0xedadaab2 expected=0x9899c32c got=0x9899c32c status=PASS
+RESULT test=Deterministic sweep lane=3 tag=0x07 key=0xef7fa0064b4e4483ed3dd0b42ba58a69 seed=0xe04277ad expected=0x9b618e38 got=0x9b618e38 status=PASS
+REFERENCE_SUMMARY source=github_murmur3_x86_32 total_results=36
