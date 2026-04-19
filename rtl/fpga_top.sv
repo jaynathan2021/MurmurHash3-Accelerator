@@ -72,13 +72,13 @@ module fpga_top #(
     // -------------------------------------------------------------------------
     // XOR all hash outputs to LEDs — keeps the datapath alive through P&R
     // -------------------------------------------------------------------------
-    logic [31:0] hash_xor;
+    logic [15:0] hash_xor;
     always_comb begin
         hash_xor = '0;
         for (int i = 0; i < N; i++)
-            hash_xor ^= hash_out[i];
+            hash_xor ^= hash_out[i][15:0];
     end
 
-    assign led = hash_xor[15:0];
+    assign led = hash_xor;
 
 endmodule

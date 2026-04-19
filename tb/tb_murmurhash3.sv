@@ -24,7 +24,7 @@ module tb_murmurhash3;
     // =========================================================================
     localparam int N              = 4;
     localparam int TAG_W          = 8;
-    localparam int PIPELINE_DEPTH = 6;      // 4 mix + 2 fmix stages
+    localparam int PIPELINE_DEPTH = 11;     // 4 body blocks x 2 sub-stages + 3 fmix stages
     localparam int SWEEP_CASES_PER_LANE = 8;
     localparam realtime CLK_HALF  = 5.0;    // 10 ns period → 100 MHz
 
