@@ -1,0 +1,19 @@
+============================================================
+ MurmurHash3 CPU Throughput Benchmark
+ N_KEYS=10000000  N_RUNS=10  TDP=65 W (upper bound)
+============================================================
+
+=== Scalar C ===
+  avg_elapsed : 0.0498 s  (over 8 middle runs)
+  throughput  : 200.72 Mhash/s  (std=0.57)
+  energy eff  : 3.09 Mhash/J  (upper bound, TDP=65 W)
+CPU_RESULT impl=scalar n_keys=10000000 elapsed_s=0.049821 throughput_mhps=200.7171 stddev_mhps=0.5672 hashpj=3087954.80
+
+=== AVX2 x8 ===
+  SKIPPED — build with -mavx2 on an x86 CPU to enable
+CPU_RESULT impl=avx2x8 n_keys=0 elapsed_s=0 throughput_mhps=0 stddev_mhps=0 hashpj=0
+
+============================================================
+ Note: energy efficiency = throughput / TDP is an UPPER BOUND.
+ Actual power draw is <= TDP in most workloads.
+============================================================

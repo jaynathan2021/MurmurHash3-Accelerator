@@ -21,11 +21,22 @@ module tb_murmurhash3;
 
     // =========================================================================
     // Parameters — must match DUT
+    //   SWEEP_KEYS_PER_LANE : per proposal §3.2, paper run uses 10_000.
+    //                         Default kept low for fast turnaround; override via
+    //                         xelab --generic_top SWEEP_KEYS_PER_LANE=10000.
+    //   VERBOSE             : 1 prints per-result PASS lines (small runs only).
+    //                         0 suppresses per-result chatter; only failures
+    //                         and the final summary are printed.
+    //   SEED                : LCG seed for the random sweep — vary across runs
+    //                         to satisfy the three-seed power methodology
+    //                         (§3.4).
     // =========================================================================
-    localparam int N              = 4;
-    localparam int TAG_W          = 8;
+    parameter  int N                   = 4;
+    parameter  int TAG_W               = 8;
+    parameter  int SWEEP_KEYS_PER_LANE = 1000;
+    parameter  int VERBOSE             = 0;
+    parameter  int SEED                = 32'h1badf00d;
     localparam int PIPELINE_DEPTH = 11;     // 4 body blocks x 2 sub-stages + 3 fmix stages
-    localparam int SWEEP_CASES_PER_LANE = 8;
     localparam realtime CLK_HALF  = 5.0;    // 10 ns period → 100 MHz
 
     // =========================================================================
@@ -181,12 +192,13 @@ module tb_murmurhash3;
                     fail_count++;
                 end else begin
                     pass_count++;
-                    $display("RESULT test=%s lane=%0d tag=0x%02h key=0x%032h seed=0x%08h expected=0x%08h got=0x%08h status=PASS",
-                             active_test_name, i, tag_out[i],
-                             scoreboard[i][tag_out[i]].key,
-                             scoreboard[i][tag_out[i]].seed,
-                             scoreboard[i][tag_out[i]].expected,
-                             hash_out[i]);
+                    if (VERBOSE != 0)
+                        $display("RESULT test=%s lane=%0d tag=0x%02h key=0x%032h seed=0x%08h expected=0x%08h got=0x%08h status=PASS",
+                                 active_test_name, i, tag_out[i],
+                                 scoreboard[i][tag_out[i]].key,
+                                 scoreboard[i][tag_out[i]].seed,
+                                 scoreboard[i][tag_out[i]].expected,
+                                 hash_out[i]);
                 end
                 scoreboard[i][tag_out[i]].occupied = 1'b0;
             end
@@ -297,8 +309,16 @@ module tb_murmurhash3;
 
         // -----------------------------------------------------------------
         // Correctness-focused flow
+        //
+        // Per proposal §3.2: the verification dataset is 10 000 random keys.
+        // Set SWEEP_KEYS_PER_LANE=10000 at elab for the paper run.
+        // VERBOSE=0 keeps the log compact; failures still print loudly.
+        //
+        // The deterministic sweep also pauses periodically to let
+        // outstanding results drain so the tag-indexed scoreboard does not
+        // alias when SWEEP_KEYS_PER_LANE > 2**TAG_W.
         // -----------------------------------------------------------------
-        total_expected_results = 4 + (SWEEP_CASES_PER_LANE * N);
+        total_expected_results = 4 + (SWEEP_KEYS_PER_LANE * N);
 
         run_directed_case("TV0 zero key seed=0",           TV0_KEY, TV0_SEED, TV0_GOLDEN);
         run_directed_case("TV1 ones key seed=DEADBEEF",    TV1_KEY, TV1_SEED, TV1_GOLDEN);
@@ -306,16 +326,19 @@ module tb_murmurhash3;
         run_directed_case("TV3 AA pattern seed=CAFEBABE",  TV3_KEY, TV3_SEED, TV3_GOLDEN);
 
         start_test("Deterministic sweep");
-        $display("=== Deterministic correctness sweep (%0d cases x %0d lanes) ===",
-                 SWEEP_CASES_PER_LANE, N);
+        $display("=== Deterministic correctness sweep (%0d keys x %0d lanes, SEED=0x%08h, VERBOSE=%0d) ===",
+                 SWEEP_KEYS_PER_LANE, N, SEED, VERBOSE);
         begin
             automatic logic [127:0] rkey;
             automatic logic [31:0]  rseed;
             automatic logic [31:0]  prng_state;
             automatic logic [31:0]  w0, w1, w2, w3;
+            automatic int           tag_ring    = 2**TAG_W;
+            automatic int           drain_iv    = (tag_ring > 16) ? (tag_ring - 16) : 1;
+            automatic int           since_drain = 0;
 
-            prng_state = 32'h1badf00d;
-            repeat (SWEEP_CASES_PER_LANE) begin
+            prng_state = SEED;
+            repeat (SWEEP_KEYS_PER_LANE) begin
                 @(posedge clk);
                 for (int lane = 0; lane < N; lane++) begin
                     prng_state = lcg_next(prng_state); w0 = prng_state;
@@ -325,6 +348,12 @@ module tb_murmurhash3;
                     prng_state = lcg_next(prng_state); rseed = prng_state;
                     rkey = {w3, w2, w1, w0};
                     drive_key(lane, rkey, rseed);
+                end
+                since_drain++;
+                if (since_drain >= drain_iv) begin
+                    @(posedge clk); idle_all();
+                    repeat (PIPELINE_DEPTH + 2) @(posedge clk);
+                    since_drain = 0;
                 end
             end
         end
@@ -336,7 +365,7 @@ module tb_murmurhash3;
         $display(" CORRECTNESS SUMMARY");
         $display("============================================================");
         $display("  Directed C-verified vectors : 4");
-        $display("  Deterministic sweep outputs : %0d", SWEEP_CASES_PER_LANE * N);
+        $display("  Deterministic sweep outputs : %0d", SWEEP_KEYS_PER_LANE * N);
         $display("  Total expected results      : %0d", total_expected_results);
         $display("  PASS                        : %0d", pass_count);
         $display("  FAIL                        : %0d", fail_count);
@@ -493,10 +522,12 @@ module tb_murmurhash3;
         */
     end
 
-    // Watchdog
+    // Watchdog — scales with sweep size. ~50 ns per driven key plus pipeline
+    // drain overhead at every TAG_W ring boundary; 200 ns per key is a safe
+    // upper bound that covers TAG_W=8 with N up to 32.
     initial begin
-        #500_000;
-        $fatal(1, "TIMEOUT: simulation exceeded 500 us");
+        #(real'(SWEEP_KEYS_PER_LANE) * 200.0 + 200_000.0);
+        $fatal(1, "TIMEOUT: correctness sim exceeded watchdog");
     end
 
 endmodule

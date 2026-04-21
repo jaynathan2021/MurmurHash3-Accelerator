@@ -13,6 +13,23 @@ transcript
 
 # Build artifacts
 *.exe
+sw/avx2_bench
+sw/avx2_bench_scalar
+sw/murmurhash3_ref
+
+# macOS
+.DS_Store
+
+# Vivado xsim local artifacts
+xsim.dir/
+.Xil/
+*.pb
+*.jou
+xvlog.*
+xelab.*
+webtalk*
+sim/logs/*.log
+sim/logs/*.jou
 
 # Backup files
 *.bak
