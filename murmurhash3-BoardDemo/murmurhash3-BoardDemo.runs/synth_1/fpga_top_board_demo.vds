@@ -1,0 +1,1404 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Apr 26 15:05:26 2026
+# Process ID         : 40556
+# Current directory  : C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.runs/synth_1
+# Command line       : vivado.exe -log fpga_top_board_demo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga_top_board_demo.tcl
+# Log file           : C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.runs/synth_1/fpga_top_board_demo.vds
+# Journal file       : C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.runs/synth_1\vivado.jou
+# Running On         : JayNathan
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12700H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 34044 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 36191 MB
+# Available Virtual  : 15179 MB
+#-----------------------------------------------------------
+source fpga_top_board_demo.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 618.574 ; gain = 188.000
+Command: read_checkpoint -auto_incremental -incremental C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.srcs/utils_1/imports/synth_1/fpga_top_board_demo.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.srcs/utils_1/imports/synth_1/fpga_top_board_demo.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top fpga_top_board_demo -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6316
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1288.824 ; gain = 465.219
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'fpga_top_board_demo' [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/fpga_top_board_demo.sv:20]
+	Parameter N bound to: 32'sb00000000000000000000000000000100 
+	Parameter TAG_W bound to: 32'sb00000000000000000000000000000001 
+INFO: [Synth 8-6157] synthesizing module 'murmurhash3_accel' [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_accel.sv:82]
+	Parameter N bound to: 32'sb00000000000000000000000000000100 
+	Parameter TAG_W bound to: 32'sb00000000000000000000000000000001 
+INFO: [Synth 8-6157] synthesizing module 'murmurhash3_lane' [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:25]
+	Parameter TAG_W bound to: 32'sb00000000000000000000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'murmurhash3_lane' (0#1) [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:25]
+INFO: [Synth 8-6155] done synthesizing module 'murmurhash3_accel' (0#1) [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_accel.sv:82]
+INFO: [Synth 8-6155] done synthesizing module 'fpga_top_board_demo' (0#1) [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/fpga_top_board_demo.sv:20]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_accel'. This will prevent further optimization [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/fpga_top_board_demo.sv:100]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.434 ; gain = 571.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.434 ; gain = 571.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.434 ; gain = 571.828
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1395.434 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/constraints/nexys_a7_board_demo.xdc]
+WARNING: [Vivado 12-508] No pins matched 'fpga_top_board_demo/core_clk_reg/Q'. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/constraints/nexys_a7_board_demo.xdc:24]
+CRITICAL WARNING: [Vivado 12-4739] create_generated_clock:No valid object(s) found for '-objects [get_pins fpga_top_board_demo/core_clk_reg/Q]'. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/constraints/nexys_a7_board_demo.xdc:24]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/constraints/nexys_a7_board_demo.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/constraints/nexys_a7_board_demo.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_top_board_demo_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_top_board_demo_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1492.961 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1492.961 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1492.961 ; gain = 669.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1492.961 ; gain = 669.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1492.961 ; gain = 669.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1492.961 ; gain = 669.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 35    
++---XORs : 
+	   2 Input     32 Bit         XORs := 32    
+	   2 Input     15 Bit         XORs := 3     
++---Registers : 
+	               96 Bit    Registers := 8     
+	               64 Bit    Registers := 8     
+	               32 Bit    Registers := 60    
+	               18 Bit    Registers := 24    
+	               16 Bit    Registers := 24    
+	               11 Bit    Registers := 4     
+	                1 Bit    Registers := 45    
++---Multipliers : 
+	              29x32  Multipliers := 16    
+	               3x32  Multipliers := 16    
+	              32x32  Multipliers := 8     
++---Muxes : 
+	   2 Input   15 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/s6_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:127]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/s5_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:185]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[0].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/s6_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:127]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/s5_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:185]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[1].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/s6_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:127]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/s5_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:185]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[2].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/s6_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:127]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/s5_key_reg' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:185]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/c_s5_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:126]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+WARNING: [Synth 8-3936] Found unconnected internal register 'g_lanes[3].u_lane/c_s3_mul' and it is trimmed from '16' to '15' bits. [C:/Users/jayna/Desktop/MurmurHash3-Accelerator/rtl/murmurhash3_lane.sv:125]
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/s5_key_reg is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: register g_lanes[0].u_lane/s6_key_reg is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: register g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s7_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: register g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s7_mul is absorbed into DSP g_lanes[0].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b3, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[0].u_lane/s7_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/s7_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b3, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s5_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: register g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s5_mul is absorbed into DSP g_lanes[0].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b2, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[0].u_lane/s5_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/s5_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b2, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s3_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: register g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s3_mul is absorbed into DSP g_lanes[0].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b1, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[0].u_lane/s3_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/s3_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b1, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_s1_mul, operation Mode is: (PCIN>>17)+A*(B:0x664f).
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[0].u_lane/c_s1_mul is absorbed into DSP g_lanes[0].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b0, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[0].u_lane/s1_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/s1_k_reg is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b0, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[0].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[0].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[0].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[0].u_lane/s9_h0, operation Mode is: (A:0x1ca6b)*B.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h0.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[0].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[0].u_lane/s9_h_reg is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[0].u_lane/s9_h0, operation Mode is: A*(B:0x1ca6b).
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h0.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[0].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[0].u_lane/s9_h_reg is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s9_h0 is absorbed into DSP g_lanes[0].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[0].u_lane/s10_h0, operation Mode is: (A:0xae35)*B.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h0.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[0].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[0].u_lane/s10_h_reg is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[0].u_lane/s10_h0, operation Mode is: A*(B:0xae35).
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h0.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[0].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[0].u_lane/s10_h_reg is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[0].u_lane/s10_h0 is absorbed into DSP g_lanes[0].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/s5_key_reg is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: register g_lanes[1].u_lane/s6_key_reg is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: register g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s7_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: register g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s7_mul is absorbed into DSP g_lanes[1].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b3, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[1].u_lane/s7_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/s7_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b3, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s5_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: register g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s5_mul is absorbed into DSP g_lanes[1].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b2, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[1].u_lane/s5_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/s5_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b2, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s3_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: register g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s3_mul is absorbed into DSP g_lanes[1].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b1, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[1].u_lane/s3_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/s3_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b1, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_s1_mul, operation Mode is: (PCIN>>17)+A*(B:0x664f).
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[1].u_lane/c_s1_mul is absorbed into DSP g_lanes[1].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b0, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[1].u_lane/s1_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/s1_k_reg is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b0, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[1].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[1].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[1].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[1].u_lane/s9_h0, operation Mode is: (A:0x1ca6b)*B.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h0.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[1].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[1].u_lane/s9_h_reg is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[1].u_lane/s9_h0, operation Mode is: A*(B:0x1ca6b).
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h0.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[1].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[1].u_lane/s9_h_reg is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s9_h0 is absorbed into DSP g_lanes[1].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[1].u_lane/s10_h0, operation Mode is: (A:0xae35)*B.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h0.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[1].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[1].u_lane/s10_h_reg is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[1].u_lane/s10_h0, operation Mode is: A*(B:0xae35).
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h0.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[1].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[1].u_lane/s10_h_reg is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[1].u_lane/s10_h0 is absorbed into DSP g_lanes[1].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/s5_key_reg is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: register g_lanes[2].u_lane/s6_key_reg is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: register g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s7_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: register g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s7_mul is absorbed into DSP g_lanes[2].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b3, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[2].u_lane/s7_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/s7_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b3, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s5_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: register g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s5_mul is absorbed into DSP g_lanes[2].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b2, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[2].u_lane/s5_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/s5_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b2, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s3_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: register g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s3_mul is absorbed into DSP g_lanes[2].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b1, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[2].u_lane/s3_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/s3_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b1, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_s1_mul, operation Mode is: (PCIN>>17)+A*(B:0x664f).
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[2].u_lane/c_s1_mul is absorbed into DSP g_lanes[2].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b0, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[2].u_lane/s1_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/s1_k_reg is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b0, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[2].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[2].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[2].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[2].u_lane/s9_h0, operation Mode is: (A:0x1ca6b)*B.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h0.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[2].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[2].u_lane/s9_h_reg is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[2].u_lane/s9_h0, operation Mode is: A*(B:0x1ca6b).
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h0.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[2].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[2].u_lane/s9_h_reg is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s9_h0 is absorbed into DSP g_lanes[2].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[2].u_lane/s10_h0, operation Mode is: (A:0xae35)*B.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h0.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[2].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[2].u_lane/s10_h_reg is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[2].u_lane/s10_h0, operation Mode is: A*(B:0xae35).
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h0.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[2].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[2].u_lane/s10_h_reg is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[2].u_lane/s10_h0 is absorbed into DSP g_lanes[2].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/s5_key_reg is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: register g_lanes[3].u_lane/s6_key_reg is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s7_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: register g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s7_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: register g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s7_mul is absorbed into DSP g_lanes[3].u_lane/c_s7_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b3, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[3].u_lane/s7_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/s7_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b3, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b3, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b3 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b3.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s5_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s5_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: register g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s5_mul is absorbed into DSP g_lanes[3].u_lane/c_s5_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b2, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[3].u_lane/s5_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/s5_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b2, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b2 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b2.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s3_mul, operation Mode is: A''*(B:0x2d51).
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s3_mul, operation Mode is: (PCIN>>17)+A''*(B:0x664f).
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: register g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s3_mul is absorbed into DSP g_lanes[3].u_lane/c_s3_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b1, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[3].u_lane/s3_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/s3_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b1, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b1, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b1 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b1.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s1_mul, operation Mode is: A*(B:0x2d51).
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_s1_mul, operation Mode is: (PCIN>>17)+A*(B:0x664f).
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: operator g_lanes[3].u_lane/c_s1_mul is absorbed into DSP g_lanes[3].u_lane/c_s1_mul.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b0, operation Mode is: (A:0x13593)*B2.
+DSP Report: register g_lanes[3].u_lane/s1_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/s1_k_reg is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b0, operation Mode is: A2*(B:0x13593).
+DSP Report: register g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[3].u_lane/c_kc2_b0, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: operator g_lanes[3].u_lane/c_kc2_b0 is absorbed into DSP g_lanes[3].u_lane/c_kc2_b0.
+DSP Report: Generating DSP g_lanes[3].u_lane/s9_h0, operation Mode is: (A:0x1ca6b)*B.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h0.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[3].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[3].u_lane/s9_h_reg is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[3].u_lane/s9_h0, operation Mode is: A*(B:0x1ca6b).
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h0.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h0.
+DSP Report: Generating DSP g_lanes[3].u_lane/s9_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[3].u_lane/s9_h_reg is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s9_h0 is absorbed into DSP g_lanes[3].u_lane/s9_h_reg.
+DSP Report: Generating DSP g_lanes[3].u_lane/s10_h0, operation Mode is: (A:0xae35)*B.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h0.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[3].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[3].u_lane/s10_h_reg is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+DSP Report: Generating DSP g_lanes[3].u_lane/s10_h0, operation Mode is: A*(B:0xae35).
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h0.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h0.
+DSP Report: Generating DSP g_lanes[3].u_lane/s10_h_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register g_lanes[3].u_lane/s10_h_reg is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+DSP Report: operator g_lanes[3].u_lane/s10_h0 is absorbed into DSP g_lanes[3].u_lane/s10_h_reg.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[47]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[46]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[45]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[44]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[43]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[42]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[41]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[40]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[39]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[38]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[37]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[36]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[35]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[34]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[33]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[32]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[31]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[30]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[29]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[28]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[27]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[26]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[25]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[24]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[23]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[22]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[21]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[20]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[19]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[18]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[17]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[16]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[15]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[47]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[46]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[45]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[44]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[43]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[42]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[41]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[40]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[39]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[38]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[37]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[36]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[35]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[34]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[33]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[32]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[31]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[30]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[29]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[28]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[27]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[26]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[25]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[24]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[23]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[22]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[21]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[20]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[19]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[18]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s9_h_reg[17]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[47]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[46]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[45]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[44]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[43]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[42]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[41]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[40]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[39]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[38]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[37]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[36]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[35]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[34]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[33]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[32]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[31]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[30]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[29]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[28]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[27]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[26]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[25]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[24]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[23]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[22]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[21]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[20]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[19]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[18]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[17]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[16]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[15]) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[47]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[46]__0) is unused and will be removed from module murmurhash3_accel.
+WARNING: [Synth 8-3332] Sequential element (g_lanes[0].u_lane/s10_h_reg[45]__0) is unused and will be removed from module murmurhash3_accel.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1492.961 ; gain = 669.355
+---------------------------------------------------------------------------------
+ Sort Area is  g_lanes[0].u_lane/s9_h0_1a : 0 0 : 2039 4865 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s9_h0_1a : 0 1 : 2826 4865 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s9_h0_34 : 0 0 : 2039 4865 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s9_h0_34 : 0 1 : 2826 4865 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s9_h0_48 : 0 0 : 2039 4865 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s9_h0_48 : 0 1 : 2826 4865 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s9_h0_5c : 0 0 : 2039 4865 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s9_h0_5c : 0 1 : 2826 4865 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s9_h0_1d : 0 0 : 2040 4747 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s9_h0_1d : 0 1 : 2707 4747 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s9_h0_35 : 0 0 : 2040 4747 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s9_h0_35 : 0 1 : 2707 4747 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s9_h0_49 : 0 0 : 2040 4747 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s9_h0_49 : 0 1 : 2707 4747 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s9_h0_5d : 0 0 : 2040 4747 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s9_h0_5d : 0 1 : 2707 4747 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s10_h0_20 : 0 0 : 1682 4508 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s10_h0_20 : 0 1 : 2826 4508 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s10_h0_36 : 0 0 : 1682 4508 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s10_h0_36 : 0 1 : 2826 4508 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s10_h0_4a : 0 0 : 1682 4508 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s10_h0_4a : 0 1 : 2826 4508 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s10_h0_5e : 0 0 : 1682 4508 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s10_h0_5e : 0 1 : 2826 4508 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s10_h0_22 : 0 0 : 1684 4391 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/s10_h0_22 : 0 1 : 2707 4391 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s10_h0_37 : 0 0 : 1684 4391 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/s10_h0_37 : 0 1 : 2707 4391 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s10_h0_4b : 0 0 : 1684 4391 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/s10_h0_4b : 0 1 : 2707 4391 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s10_h0_5f : 0 0 : 1684 4391 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/s10_h0_5f : 0 1 : 2707 4391 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b0_18 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b0_18 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b1_11 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b1_11 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b2_d : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b2_d : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b3_5 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b3_5 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b0_32 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b0_32 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b1_2e : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b1_2e : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b2_2a : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b2_2a : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b3_26 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b3_26 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b0_46 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b0_46 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b1_42 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b1_42 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b2_3e : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b2_3e : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b3_3a : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b3_3a : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b0_5a : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b0_5a : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b1_56 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b1_56 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b2_52 : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b2_52 : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b3_4e : 0 0 : 2016 4336 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b3_4e : 0 1 : 2320 4336 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b0_19 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b0_19 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b1_12 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b1_12 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b2_e : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b2_e : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b3_8 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_kc2_b3_8 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b0_33 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b0_33 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b1_2f : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b1_2f : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b2_2b : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b2_2b : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b3_27 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_kc2_b3_27 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b0_47 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b0_47 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b1_43 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b1_43 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b2_3f : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b2_3f : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b3_3b : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_kc2_b3_3b : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b0_5b : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b0_5b : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b1_57 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b1_57 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b2_53 : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b2_53 : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b3_4f : 0 0 : 2021 4247 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_kc2_b3_4f : 0 1 : 2226 4247 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s3_mul_f : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s3_mul_f : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s5_mul_b : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s5_mul_b : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s7_mul_0 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s7_mul_0 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s3_mul_2c : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s3_mul_2c : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s5_mul_28 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s5_mul_28 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s7_mul_24 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s7_mul_24 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s3_mul_40 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s3_mul_40 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s5_mul_3c : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s5_mul_3c : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s7_mul_38 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s7_mul_38 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s3_mul_54 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s3_mul_54 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s5_mul_50 : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s5_mul_50 : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s7_mul_4c : 0 0 : 1309 2340 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s7_mul_4c : 0 1 : 1031 2340 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s1_mul_13 : 0 0 : 1273 2270 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s1_mul_13 : 0 1 : 997 2270 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s1_mul_30 : 0 0 : 1273 2270 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s1_mul_30 : 0 1 : 997 2270 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s1_mul_44 : 0 0 : 1273 2270 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s1_mul_44 : 0 1 : 997 2270 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s1_mul_58 : 0 0 : 1273 2270 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s1_mul_58 : 0 1 : 997 2270 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s3_mul_10 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s5_mul_c : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s7_mul_3 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s3_mul_2d : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s5_mul_29 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s7_mul_25 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s3_mul_41 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s5_mul_3d : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s7_mul_39 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s3_mul_55 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s5_mul_51 : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s7_mul_4d : 0 0 : 1031 1031 : Used 1 time 0
+ Sort Area is  g_lanes[0].u_lane/c_s1_mul_16 : 0 0 : 1001 1001 : Used 1 time 0
+ Sort Area is  g_lanes[1].u_lane/c_s1_mul_31 : 0 0 : 1001 1001 : Used 1 time 0
+ Sort Area is  g_lanes[2].u_lane/c_s1_mul_45 : 0 0 : 1001 1001 : Used 1 time 0
+ Sort Area is  g_lanes[3].u_lane/c_s1_mul_59 : 0 0 : 1001 1001 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------------+---------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping               | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+---------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A*(B:0x664f)   | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x1ca6b)*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0x1ca6b)             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A:0xae35)*B              | 16     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0xae35)              | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A*(B:0x664f)   | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x1ca6b)*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0x1ca6b)             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A:0xae35)*B              | 16     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0xae35)              | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A*(B:0x664f)   | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x1ca6b)*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0x1ca6b)             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A:0xae35)*B              | 16     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0xae35)              | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*(B:0x2d51)            | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*(B:0x2d51)            | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A''*(B:0x664f) | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*(B:0x2d51)              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | (PCIN>>17)+A*(B:0x664f)   | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x13593)*B2            | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 16     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A2*(B:0x13593)            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A2*B           | 18     | 13     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A:0x1ca6b)*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0x1ca6b)             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A:0xae35)*B              | 16     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*(B:0xae35)              | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17)+A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++------------------+---------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1666.375 ; gain = 842.770
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1692.508 ; gain = 868.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1710.699 ; gain = 887.094
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 15     | 14     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 17     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A*B    | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A*B')'         | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A*B)'          | 15     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 15     | 14     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 17     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A*B    | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A*B')'         | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A*B)'          | 15     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 15     | 14     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 17     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A*B    | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A*B')'         | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A*B)'          | 15     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A''*B           | 15     | 14     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A''*B           | 17     | 14     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A''*B  | 15     | 15     | -      | -      | 15     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 15     | 14     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | A*B             | 17     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_lane  | PCIN>>17+A*B    | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A*B'            | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | A'*B            | 17     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | PCIN>>17+A*B    | 0      | 12     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (A*B')'         | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | (A*B)'          | 15     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|murmurhash3_accel | A*B             | 17     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|murmurhash3_accel | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     2|
+|2     |CARRY4  |   455|
+|3     |DSP48E1 |   120|
+|9     |LUT1    |   498|
+|10    |LUT2    |  1296|
+|11    |LUT3    |    15|
+|12    |LUT4    |   360|
+|13    |LUT6    |    15|
+|14    |FDCE    |    70|
+|15    |FDRE    |  1668|
+|16    |IBUF    |     2|
+|17    |OBUF    |    16|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 537 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1912.594 ; gain = 991.461
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1912.594 ; gain = 1088.988
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1912.594 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 575 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1925.430 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: b5939ffc
+INFO: [Common 17-83] Releasing license: Synthesis
+29 Infos, 126 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1925.430 ; gain = 1302.141
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1925.430 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3-BoardDemo/murmurhash3-BoardDemo.runs/synth_1/fpga_top_board_demo.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file fpga_top_board_demo_utilization_synth.rpt -pb fpga_top_board_demo_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 26 15:06:04 2026...

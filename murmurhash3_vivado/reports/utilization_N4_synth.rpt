@@ -1,0 +1,34 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Apr 26 13:32:33 2026
+| Host         : JayNathan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3_vivado/reports/utilization_N4_synth.rpt
+| Design       : fpga_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance       |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+| fpga_top              |              (top) |       1589 |       1589 |       0 |    0 | 1636 |      0 |      0 |        120 |
+|   (fpga_top)          |              (top) |          2 |          2 |       0 |    0 |   32 |      0 |      0 |          0 |
+|   u_accel             |  murmurhash3_accel |       1587 |       1587 |       0 |    0 | 1604 |      0 |      0 |        120 |
+|     g_lanes[0].u_lane |   murmurhash3_lane |        392 |        392 |       0 |    0 |  402 |      0 |      0 |         30 |
+|     g_lanes[1].u_lane | murmurhash3_lane_0 |        392 |        392 |       0 |    0 |  400 |      0 |      0 |         30 |
+|     g_lanes[2].u_lane | murmurhash3_lane_1 |        409 |        409 |       0 |    0 |  402 |      0 |      0 |         30 |
+|     g_lanes[3].u_lane | murmurhash3_lane_2 |        394 |        394 |       0 |    0 |  400 |      0 |      0 |         30 |
++-----------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

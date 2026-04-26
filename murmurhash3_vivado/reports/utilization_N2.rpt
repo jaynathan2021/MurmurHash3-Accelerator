@@ -1,0 +1,33 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Apr 26 13:31:42 2026
+| Host         : JayNathan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3_vivado/reports/utilization_N2.rpt
+| Design       : fpga_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|        Instance       |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| fpga_top              |              (top) |        790 |        790 |       0 |    0 | 930 |      0 |      0 |         60 |
+|   (fpga_top)          |              (top) |          2 |          2 |       0 |    0 |  81 |      0 |      0 |          0 |
+|   u_accel             |  murmurhash3_accel |        788 |        788 |       0 |    0 | 849 |      0 |      0 |         60 |
+|     g_lanes[0].u_lane |   murmurhash3_lane |        385 |        385 |       0 |    0 | 417 |      0 |      0 |         30 |
+|     g_lanes[1].u_lane | murmurhash3_lane_0 |        403 |        403 |       0 |    0 | 432 |      0 |      0 |         30 |
++-----------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

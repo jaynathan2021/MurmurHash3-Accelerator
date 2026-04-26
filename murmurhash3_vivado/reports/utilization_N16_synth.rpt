@@ -1,0 +1,46 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Apr 26 13:38:44 2026
+| Host         : JayNathan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3_vivado/reports/utilization_N16_synth.rpt
+| Design       : fpga_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance        |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+| fpga_top               |               (top) |      33358 |      33105 |       0 |  253 | 8059 |      0 |      0 |        224 |
+|   (fpga_top)           |               (top) |          2 |          2 |       0 |    0 |   36 |      0 |      0 |          0 |
+|   u_accel              |   murmurhash3_accel |      33356 |      33103 |       0 |  253 | 8023 |      0 |      0 |        224 |
+|     g_lanes[0].u_lane  |    murmurhash3_lane |       1980 |       1965 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[10].u_lane |  murmurhash3_lane_0 |       2033 |       2017 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[11].u_lane |  murmurhash3_lane_1 |       2102 |       2086 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[12].u_lane |  murmurhash3_lane_2 |       2022 |       2007 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[13].u_lane |  murmurhash3_lane_3 |       2102 |       2086 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[14].u_lane |  murmurhash3_lane_4 |       2343 |       2326 |       0 |   17 |  505 |      0 |      0 |         14 |
+|     g_lanes[15].u_lane |  murmurhash3_lane_5 |       2023 |       2008 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[1].u_lane  |  murmurhash3_lane_6 |       2018 |       2003 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[2].u_lane  |  murmurhash3_lane_7 |       2077 |       2060 |       0 |   17 |  505 |      0 |      0 |         14 |
+|     g_lanes[3].u_lane  |  murmurhash3_lane_8 |       2394 |       2377 |       0 |   17 |  505 |      0 |      0 |         14 |
+|     g_lanes[4].u_lane  |  murmurhash3_lane_9 |       2048 |       2032 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[5].u_lane  | murmurhash3_lane_10 |       2037 |       2022 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[6].u_lane  | murmurhash3_lane_11 |       2033 |       2017 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[7].u_lane  | murmurhash3_lane_12 |       2022 |       2007 |       0 |   15 |  499 |      0 |      0 |         14 |
+|     g_lanes[8].u_lane  | murmurhash3_lane_13 |       2082 |       2066 |       0 |   16 |  502 |      0 |      0 |         14 |
+|     g_lanes[9].u_lane  | murmurhash3_lane_14 |       2040 |       2024 |       0 |   16 |  502 |      0 |      0 |         14 |
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

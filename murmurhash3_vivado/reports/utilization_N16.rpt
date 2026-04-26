@@ -1,0 +1,47 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Apr 26 13:44:15 2026
+| Host         : JayNathan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/jayna/Desktop/MurmurHash3-Accelerator/murmurhash3_vivado/reports/utilization_N16.rpt
+| Design       : fpga_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance        |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+| fpga_top               |               (top) |      25782 |      25645 |       0 |  137 | 9147 |      0 |      0 |        224 |
+|   (fpga_top)           |               (top) |          2 |          2 |       0 |    0 |  193 |      0 |      0 |          0 |
+|   u_accel              |   murmurhash3_accel |      25780 |      25643 |       0 |  137 | 8954 |      0 |      0 |        224 |
+|     g_lanes[0].u_lane  |    murmurhash3_lane |       1567 |       1559 |       0 |    8 |  559 |      0 |      0 |         14 |
+|     g_lanes[10].u_lane |  murmurhash3_lane_0 |       1587 |       1579 |       0 |    8 |  534 |      0 |      0 |         14 |
+|     g_lanes[11].u_lane |  murmurhash3_lane_1 |       1657 |       1649 |       0 |    8 |  532 |      0 |      0 |         14 |
+|     g_lanes[12].u_lane |  murmurhash3_lane_2 |       1598 |       1590 |       0 |    8 |  552 |      0 |      0 |         14 |
+|     g_lanes[13].u_lane |  murmurhash3_lane_3 |       1655 |       1647 |       0 |    8 |  527 |      0 |      0 |         14 |
+|     g_lanes[14].u_lane |  murmurhash3_lane_4 |       1694 |       1682 |       0 |   12 |  575 |      0 |      0 |         14 |
+|     g_lanes[15].u_lane |  murmurhash3_lane_5 |       1599 |       1591 |       0 |    8 |  552 |      0 |      0 |         14 |
+|     g_lanes[1].u_lane  |  murmurhash3_lane_6 |       1590 |       1582 |       0 |    8 |  575 |      0 |      0 |         14 |
+|     g_lanes[2].u_lane  |  murmurhash3_lane_7 |       1612 |       1603 |       0 |    9 |  577 |      0 |      0 |         14 |
+|     g_lanes[3].u_lane  |  murmurhash3_lane_8 |       1713 |       1701 |       0 |   12 |  566 |      0 |      0 |         14 |
+|     g_lanes[4].u_lane  |  murmurhash3_lane_9 |       1606 |       1598 |       0 |    8 |  598 |      0 |      0 |         14 |
+|     g_lanes[5].u_lane  | murmurhash3_lane_10 |       1606 |       1598 |       0 |    8 |  531 |      0 |      0 |         14 |
+|     g_lanes[6].u_lane  | murmurhash3_lane_11 |       1594 |       1586 |       0 |    8 |  559 |      0 |      0 |         14 |
+|     g_lanes[7].u_lane  | murmurhash3_lane_12 |       1594 |       1586 |       0 |    8 |  565 |      0 |      0 |         14 |
+|     g_lanes[8].u_lane  | murmurhash3_lane_13 |       1630 |       1622 |       0 |    8 |  593 |      0 |      0 |         14 |
+|     g_lanes[9].u_lane  | murmurhash3_lane_14 |       1610 |       1602 |       0 |    8 |  559 |      0 |      0 |         14 |
++------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+
